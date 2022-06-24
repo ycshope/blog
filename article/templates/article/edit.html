@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Edit itmes {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <textarea rows="1" cols="10" class="form-control" name="title" id="title">{{ article.title }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="body">Items Body</label>
+                    <textarea rows="12" cols="120" class="form-control" name="body" id="body">{{ article.body }}</textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

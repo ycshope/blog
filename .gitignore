@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+#settings 
+settings.py
+settings.py.bak
+
+#db
+logs/*
+db_data/*
+
+#fdfs
+fdfs/storage/data/*
+fdfs/storage/log/*
+fdfs/tracker/data.tar.gz
+fdfs/tracker/data/*
+fdfs/tracker/log/*
+
+#keys
+*.pem
+#need verifications.view 

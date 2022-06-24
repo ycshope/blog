@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- 继承模板,改写标题 -->
+{% block title %}Item Details {% endblock title %}
+
+<!-- 继承模板,改写内容 -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
+        <div class="col-12 alert alert-success">
+            Auther:{{ article.author }}
+        </div>
+        <div class="col-12">
+            <article>{{ article.body }}</article>
+        </div>
+        <div class="del">
+            <a href="#"
+                onclick="ret=window.confirm('Deleted article can not be restored,do your want to continue this action?');
+                if(ret)
+                {document.getElementById('safe_delete_button').click();}">DeleteItem</a>
+            <!-- 隐藏的表单,真正的删除按钮 -->
+            <form action="{% url 'article:ArticleDelete' article.id %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <button type="submit" id="safe_delete_button">Confirm</button>
+            </form>
+            <a href="{% url 'article:ArticleEdit' article.id %}" class="btn btn-primary">Edit Item</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
